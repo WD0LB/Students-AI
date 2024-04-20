@@ -1,8 +1,5 @@
-from flask import Flask, Request, jsonify
+from flask import Flask, request, jsonify
 import pickle
-import sklearn
-
-print(sklearn.__version__)
 
 app = Flask(__name__)
 
@@ -17,7 +14,7 @@ with open("./grid_search_rfc.pkl", 'rb') as model_file:
 #define the prediction end point
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = Request.get_json(force=True)
+    data = request.get_json(force=True)
     features = [
         data['Course'], data['Daytime/evening attendance'], data['Previous qualification'],
         data['Previous qualification (grade)'], data['Admission grade'],
@@ -36,8 +33,9 @@ def predict():
         data['Curricular units 2nd sem (grade)'],
         data['Curricular units 2nd sem (without evaluations)']
     ]
+    print(features)
 
-    prediction = model.predict(features)
+    prediction = model.predict([features])
     return jsonify({"prediction: ": prediction.tolist()})
 
 if __name__ == "__main__":
