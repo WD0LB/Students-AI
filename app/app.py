@@ -12,7 +12,7 @@ with open("./grid_search_rfc.pkl", 'rb') as model_file:
     model = pickle.load(model_file)
 
 #define the prediction end point
-@app.route('/predict', methods=['POST'])
+@app.route('/app/predict', methods=['POST'])
 def predict():
     data = request.get_json(force=True)
     features = [
