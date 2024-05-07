@@ -1,0 +1,47 @@
+/* for the welcome page */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+}
+
+div {
+    clip-path: polygon(0 0, 100% 0, 23% 100%, 0% 100%);
+    background-color: #444cf7;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    padding: 80px;
+    color: white;
+    
+}
+
+h1 {
+    font-size: 3.3rem;
+    text-align: left;
+    width: 70%;
+    padding-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #0fc3df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #40b1e6;
+}
+
+img {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 100px;
+}
+

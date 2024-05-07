@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Success Prediction Form</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Student Success Prediction Form</h1>
-    <form id="predictionForm" action="/predict" method="post">
+    <form id="predictionForm" action="/app/predict" method="post">
         <div class="form-section active" id="page1">
             <label for="Course">Course:</label>
             <input type="number" name="Course" required><br><br>
@@ -87,7 +87,7 @@
         </div>
     </form>
 
-    <script src="app.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
 

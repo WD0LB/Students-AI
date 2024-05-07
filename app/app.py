@@ -1,18 +1,22 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 @app.route('/')
 def home():
-    return "Welcome to the Student Success Prediction Service!"
+    return render_template('index.html')
+
+@app.route('/form')
+def form():
+    return render_template('form.html')
 
 #load the model
-with open("./grid_search_rfc.pkl", 'rb') as model_file:
+with open('/home/hb/projects/Students-AI/app/grid_search_rfc.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
 #define the prediction end point
-@app.route('/app/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json(force=True)
     features = [
