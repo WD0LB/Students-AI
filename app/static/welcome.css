@@ -42,6 +42,8 @@ img {
     position: absolute;
     z-index: 1;
     bottom: 0;
-    right: 100px;
+    right: 0;
+    height: 60vh;
+    width: 50vw;
 }
 
