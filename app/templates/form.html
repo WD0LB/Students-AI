@@ -8,28 +8,28 @@
 </head>
 <body>
     <h1>Student Success Prediction Form</h1>
-    <form id="predictionForm" action="/app/predict" method="post">
+    <form id="predictionForm" action="{{ url_for('predict') }}" method="post">
         <div class="form-section active" id="page1">
             <label for="Course">Course:</label>
             <input type="number" name="Course" required><br><br>
     
             <label for="Daytime_evening_attendance">Daytime/evening attendance:</label>
-            <input type="number" name="Daytime_evening_attendance" required><br><br>
+            <input type="number" name="Daytime/evening attendance" required><br><br>
     
             <label for="Previous_qualification">Previous qualification:</label>
-            <input type="number" name="Previous_qualification" required><br><br>
+            <input type="number" name="Previous qualification" required><br><br>
     
             <label for="Previous_qualification_grade">Previous qualification (grade):</label>
-            <input type="number" name="Previous_qualification_grade" required><br><br>
+            <input type="number" name="Previous qualification (grade)" required><br><br>
     
             <label for="Admission_grade">Admission grade:</label>
-            <input type="number" name="Admission_grade" required><br><br>
+            <input type="number" name="Admission grade" required><br><br>
     
             <label for="Educational_special_needs">Educational special needs:</label>
-            <input type="number" name="Educational_special_needs" required><br><br>
+            <input type="number" name="Educational special needs" required><br><br>
     
             <label for="Tuition_fees_up_to_date">Tuition fees up to date:</label>
-            <input type="number" name="Tuition_fees_up_to_date" required><br><br>
+            <input type="number" name="Tuition fees up to date" required><br><br>
     
             <label for="Gender">Gender:</label>
             <input type="number" name="Gender" required><br><br>
@@ -37,51 +37,49 @@
         </div>
         <div class="form-section" id="page2">
             <label for="Scholarship_holder">Scholarship holder:</label>
-            <input type="number" name="Scholarship_holder" required><br><br>
+            <input type="number" name="Scholarship holder" required><br><br>
 
             <label for="Age_at_enrollment">Age at enrollment:</label>
-            <input type="number" name="Age_at_enrollment" required><br><br>
+            <input type="number" name="Age at enrollment" required><br><br>
 
             <label for="Curricular_units_1st_sem_credited">Curricular units 1st sem (credited):</label>
-            <input type="number" name="Curricular_units_1st_sem_credited" required><br><br>
+            <input type="number" name="Curricular units 1st sem (credited)" required><br><br>
 
             <label for="Curricular_units_1st_sem_enrolled">Curricular units 1st sem (enrolled):</label>
-            <input type="number" name="Curricular_units_1st_sem_enrolled" required><br><br>
+            <input type="number" name="Curricular units 1st sem (enrolled)" required><br><br>
 
             <label for="Curricular_units_1st_sem_evaluations">Curricular units 1st sem (evaluations):</label>
-            <input type="number" name="Curricular_units_1st_sem_evaluations" required><br><br>
+            <input type="number" name="Curricular units 1st sem (evaluations)" required><br><br>
 
             <label for="Curricular_units_1st_sem_approved">Curricular units 1st sem (approved):</label>
-            <input type="number" name="Curricular_units_1st_sem_approved" required><br><br>
+            <input type="number" name="Curricular units 1st sem (approved)" required><br><br>
 
             <label for="Curricular_units_1st_sem_grade">Curricular units 1st sem (grade):</label>
-            <input type="number" name="Curricular_units_1st_sem_grade" required><br><br>
+            <input type="number" name="Curricular units 1st sem (grade)" required><br><br>
 
-            <label for="Curricular_units_1st_sem_without_evaluations">Curricular units 1st sem (without evaluations):</label>
-            <input type="number" name="Curricular_units_1st_sem_without_evaluations" required><br><br>
             <button type="button" onclick="showPrevious(2)">Previous</button>
             <button type="button" onclick="showNext(2)">Next</button>
         </div>
         <div class="form-section" id="page3">
             <label for="Curricular_units_1st_sem_without_evaluations">Curricular units 1st sem (without evaluations):</label>
-            <input type="number" name="Curricular_units_1st_sem_without_evaluations" required><br><br>
+            <input type="number" name="Curricular units 1st sem (without evaluations)" required><br><br>
             <label for="Curricular_units_2nd_sem_credited">Curricular units 2nd sem (credited):</label>
-            <input type="number" name="Curricular_units_2nd_sem_credited" required><br><br>
+            <input type="number" name="Curricular units 2nd sem (credited)" required><br><br>
 
             <label for="Curricular_units_2nd_sem_enrolled">Curricular units 2nd sem (enrolled):</label>
-            <input type="number" name="Curricular_units_2nd_sem_enrolled" required><br><br>
+            <input type="number" name="Curricular units 2nd sem (enrolled)" required><br><br>
 
             <label for="Curricular_units_2nd_sem_evaluations">Curricular units 2nd sem (evaluations):</label>
-            <input type="number" name="Curricular_units_2nd_sem_evaluations" required><br><br>
+            <input type="number" name="Curricular units 2nd sem (evaluations)" required><br><br>
 
             <label for="Curricular_units_2nd_sem_approved">Curricular units 2nd sem (approved):</label>
-            <input type="number" name="Curricular_units_2nd_sem_approved" required><br><br>
+            <input type="number" name="Curricular units 2nd sem (approved)" required><br><br>
 
             <label for="Curricular_units_2nd_sem_grade">Curricular units 2nd sem (grade):</label>
-            <input type="number" name="Curricular_units_2nd_sem_grade" required><br><br>
+            <input type="number" name="Curricular units 2nd sem (grade)" required><br><br>
 
             <label for="Curricular_units_2nd_sem_without_evaluations">Curricular units 2nd sem (without evaluations):</label>
-            <input type="number" name="Curricular_units_2nd_sem_without_evaluations" required><br><br>
+            <input type="number" name="Curricular units 2nd sem (without evaluations)" required><br><br>
             <button type="button" onclick="showPrevious(3)">Previous</button>
             <input type="submit" value="Submit">
         </div>
