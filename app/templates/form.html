@@ -1,4 +1,201 @@
-<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Pred-Form </title>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.validate.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='normalize.css')}}">
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='js/ajax.js')}}"></script>
+    <style></style>
+
+</head>
+
+<body >
+    <div class="login-root" >
+        <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+            <div class="loginbackground box-background--white padding-top--64">
+                <div class="loginbackground-gridContainer">
+                    <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                        <div class="box-root"
+                            style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                        <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+                        <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                        <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                        <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                        <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+                        <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+                        <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+                        <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+                <div class="formbg-outer">
+                    <div class="formbg">
+                        <div class="formbg-inner padding-horizontal--48">
+                            <span class="padding-bottom--15" style="text-align: center;">Fill The Student Information</span>
+                            <form id="stripe-login predictionForm" action="{{ url_for('predict') }}" method="post">
+                                <div class="form-section active" id="page1">
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Course ?</label>
+                                        <input type="number" id="course" name="course" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-2">
+                                        <label for="medu" style="width:352">Daytime/evening attendance :</label>
+                                        <input type="number" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Previous qualification :</label>
+                                        <input type="number" id="quals" name="quals" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Previous qualification (grade) :</label>
+                                        <input type="number" min="0" max="4" step="1"
+                                            placeholder="0 - 20" name="failures" id="failures" required>
+                                    </div>
+                                        <div class="field padding-bottom--15 ">
+                                            <label for="number">Admission grade :</label>
+                                            <input type="number" min="0" max="20" step="1"
+                                                name="g1" id="g1" placeholder="0 - 20">
+                                        </div>
+                                        <div class="field padding-bottom--15">
+                                            <label for="number">Educational special needs :</label>
+                                            <input type="number" min="0" max="20" step="1"
+                                                name="g2" id="g2" placeholder="0 - 20">
+                                        </div>
+                                        <div class="field padding-bottom--15">
+                                            <label for="number">Tuition fees up to date :</label>
+                                            <input type="number" min="1" max="5" step="1"
+                                                name="gouout" id="gouout" placeholder="1 - 5">
+                                        </div>
+                                        <div class="field padding-bottom--24">
+                                            <div class="field padding-bottom--24 mt-5">
+                                                <button class="trigg2" onclick="showNext(1)">Show Next Page</button>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="form-section" id="page2">
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Scholarship holder :</label>
+                                        <input type="number" id="course" name="course" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-2">
+                                        <label for="medu" style="width:352">Age at enrollment :</label>
+                                        <input type="number" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Curricular units 1st sem (credited) :</label>
+                                        <input type="number" id="quals" name="quals" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Curricular units 1st sem (enrolled) :</label>
+                                        <input type="number" min="0" max="4" step="1"
+                                            placeholder="0 - 20" name="failures" id="failures" required>
+                                    </div>
+                                        <div class="field padding-bottom--15 ">
+                                            <label for="number">Curricular units 1st sem (evaluations) :</label>
+                                            <input type="number" min="0" max="20" step="1"
+                                                name="g1" id="g1" placeholder="0 - 20">
+                                        </div>
+                                        <div class="field padding-bottom--15">
+                                            <label for="number">Curricular units 1st sem (approved) :</label>
+                                            <input type="number" min="0" max="20" step="1"
+                                                name="g2" id="g2" placeholder="0 - 20">
+                                        </div>
+                                        <div class="field padding-bottom--15">
+                                            <label for="number">Curricular units 1st sem (grade) :</label>
+                                            <input type="number" min="1" max="5" step="1"
+                                                name="gouout" id="gouout" placeholder="1 - 5">
+                                        </div>
+                                        <div class="field padding-bottom--24">
+                                            <div class="field padding-bottom--24 mt-5">
+                                                <button type="submit" name="submit" class="btn btn-default trigge" onclick="showPrevious(2)">Show Previous Page</button>
+                                                <button class="trigg2" onclick="showNext(2)">Show Next Page</button>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="form-section" id="page3">
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Curricular units 1st sem (without evaluations) :</label>
+                                        <input type="number" id="course" name="course" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-2">
+                                        <label for="medu" style="width:352">Curricular units 2nd sem (credited) :</label>
+                                        <input type="number" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Curricular units 2nd sem (enrolled) :</label>
+                                        <input type="number" id="quals" name="quals" placeholder="Enter a number!" min="0" max="20" required>
+                                    </div>
+                                    <div class="field padding-bottom--15 mt-3">
+                                        <label for="number">Curricular units 2nd sem (evaluations) :</label>
+                                        <input type="number" min="0" max="4" step="1"
+                                            placeholder="0 - 20" name="failures" id="failures" required>
+                                    </div>
+                                        <div class="field padding-bottom--15 ">
+                                            <label for="number">Curricular units 2nd sem (approved) :</label>
+                                            <input type="number" min="0" max="20" step="1"
+                                                name="g1" id="g1" placeholder="0 - 20">
+                                        </div>
+                                        <div class="field padding-bottom--15">
+                                            <label for="number">Curricular units 2nd sem (grade) :</label>
+                                            <input type="number" min="0" max="20" step="1"
+                                                name="g2" id="g2" placeholder="0 - 20">
+                                        </div>
+                                        <div class="field padding-bottom--15">
+                                            <label for="number">Curricular units 2nd sem (without evaluations) :</label>
+                                            <input type="number" min="1" max="5" step="1"
+                                                name="gouout" id="gouout" placeholder="1 - 5">
+                                        </div>
+                                        <div class="field padding-bottom--24">
+                                            <div class="field padding-bottom--24 mt-5">
+                                                <button type="button" class="btn btn-default trigge" onclick="showPrevious(3)">Show Previous Page</button>
+                                                <button type="submit" class="trigg2">Show The Results</button>
+                                            </div>
+                                        </div>
+                                </div>
+                            </form>
+
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -91,4 +288,4 @@
 </html>
 
 
-
+ -->

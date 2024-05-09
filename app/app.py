@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 import pickle
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 
 @app.route('/')
 def home():

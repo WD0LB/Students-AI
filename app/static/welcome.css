@@ -6,7 +6,7 @@ body {
 
 div {
     clip-path: polygon(0 0, 100% 0, 23% 100%, 0% 100%);
-    background-color: #444cf7;
+    background-color: #009d00;
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -28,14 +28,14 @@ button {
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
-    background-color: #4285f4;
-    color: white;
+    background-color: #a3ff99;
+    color: rgb(59, 56, 56);
     border: none;
     border-radius: 5px;
 }
 
 button:hover {
-    background-color: #5991eb;
+    background-color: #7bf06e;
 }
 
 img {
@@ -45,5 +45,5 @@ img {
     right: 0;
     height: 60vh;
     width: 50vw;
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(80%) contrast(119%);
 }
-
