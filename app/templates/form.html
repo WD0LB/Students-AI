@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='normalize.css')}}">
     <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" />
-    <script src="{{ url_for('static', filename='js/ajax.js')}}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/ajax.js')}}"></script> -->
     <style></style>
 
 </head>
@@ -63,37 +63,118 @@
                             <span class="padding-bottom--15" style="text-align: center;">Fill The Student Information</span>
                             <form id="stripe-login predictionForm" action="{{ url_for('predict') }}" method="post">
                                 <div class="form-section active" id="page1">
+                                    
+                                    <label for="Course">Course:</label>
+                                    <input id="npt" type="number" name="Course" placeholder="Enter Course Number" min="1" max="20" required title="Enter a number between 1 and 20 for the course.">
+
+                            
+                                    <label for="Daytime_evening_attendance">Daytime/evening attendance:</label>
+                                    <input id="npt" type="number" name="Daytime_evening attendance" placeholder="0 for Daytime, 1 for Evening" min="0" max="1" required title="0 for Daytime, 1 for Evening">
+                            
+                                    <label for="Previous_qualification">Previous qualification:</label>
+                                    <input id="npt" type="number" name="Previous qualification" placeholder="Enter level (1-10)" min="1" max="10" required title="Enter qualification level from 1 to 10">
+                            
+                                    <label for="Previous_qualification_grade">Previous qualification (grade):</label>
+                                    <input id="npt" type="number" name="Previous qualification (grade)" placeholder="0-20" min="0" max="100" required title="Enter a grade from 0 to 20">
+                            
+                                    <label for="Admission_grade">Admission grade:</label>
+                                    <input id="npt" type="number" name="Admission grade" placeholder="Enter Admission Grade (0-100)" min="0" max="100" required title="Enter the admission grade from your latest education certificate">
+
+                                    <label for="Educational_special_needs">Educational special needs:</label>
+                                    <input id="npt" type="number" name="Educational special needs" placeholder="0 (No), 1 (Yes)" min="0" max="1" required title="0 if no special needs, 1 if there are special needs">
+                            
+                                    <label for="Tuition_fees_up_to_date">Tuition fees up to date:</label>
+                                    <input id="npt" type="number" name="Tuition fees up to date" placeholder="0 (No), 1 (Yes)" min="0" max="1" required title="0 if fees are not up to date, 1 if fees are up to date">
+                            
+                                    <label for="Gender">Gender:</label>
+                                    <input id="npt" type="number" name="Gender" placeholder="0 (Male), 1 (Female)" min="0" max="1" required title="0 for Male, 1 for Female"><br>
+
+                                    <button type="button" class="form_button btn-next" onclick="showNext(1)">Next</button>
+                                </div>
+                                <div class="form-section" id="page2">
+                                    <label for="Scholarship_holder">Scholarship holder:</label>
+                                    <input id="npt" type="number" name="Scholarship holder" placeholder="0 (No), 1 (Yes)" min="0" max="1" required title="Enter 0 if no scholarship, 1 if recipient of a scholarship">
+                        
+                                    <label for="Age_at_enrollment">Age at enrollment:</label>
+                                    <input id="npt" type="number" name="Age at enrollment" placeholder="16-60" min="16" max="60" required title="Enter the age at enrollment, usually between 16 and 60">
+                        
+                                    <label for="Curricular_units_1st_sem_credited">Curricular units 1st sem (credited):</label>
+                                    <input id="npt" type="number" name="Curricular units 1st sem (credited)" placeholder="0-10" min="0" max="10" required title="Enter the number of credited units in the 1st semester">
+                        
+                                    <label for="Curricular_units_1st_sem_enrolled">Curricular units 1st sem (enrolled):</label>
+                                    <input id="npt" type="number" name="Curricular units 1st sem (enrolled)" placeholder="0-10" min="0" max="10" required title="Enter the number of enrolled units in the 1st semester">
+                        
+                                    <label for="Curricular_units_1st_sem_evaluations">Curricular units 1st sem (evaluations):</label>
+                                    <input id="npt" type="number" name="Curricular units 1st sem (evaluations)" placeholder="0-10" min="0" max="10" required title="Enter the number of evaluations in the 1st semester">
+                        
+                                    <label for="Curricular_units_1st_sem_approved">Curricular units 1st sem (approved):</label>
+                                    <input id="npt" type="number" name="Curricular units 1st sem (approved)" placeholder="0-10" min="0" max="10" required title="Enter the number of approved units in the 1st semester">
+                        
+                                    <label for="Curricular_units_1st_sem_grade">Curricular units 1st sem (grade):</label>
+                                    <input id="npt" type="number" name="Curricular units 2nd sem (grade)" placeholder="0-20" min="0" max="20" required title="Enter the average grade for the 2nd semester units">
+                        
+                                    <button type="button" class="form_button" onclick="showPrevious(2)">Previous</button>
+                                    <button type="button" class="form_button btn-next" onclick="showNext(2)">Next</button>
+                                </div>
+                                <div class="form-section" id="page3">
+                                    <label for="Curricular_units_1st_sem_without_evaluations">Curricular units 1st sem (without evaluations):</label>
+                                    <input id="npt" type="number" name="Curricular units 1st sem (without evaluations)" placeholder="0-10" min="0" max="10" required title="Enter the number of units without evaluations in the 1st semester">
+
+                                    
+                                    <label for="Curricular_units_2nd_sem_credited">Curricular units 2nd sem (credited):</label>
+                                    <input id="npt" type="number" name="Curricular units 2nd sem (credited)" placeholder="0-10" min="0" max="10" required title="Enter the number of credited units in the 2nd semester">
+                        
+                                    <label for="Curricular_units_2nd_sem_enrolled">Curricular units 2nd sem (enrolled):</label>
+                                    <input id="npt" type="number" name="Curricular units 2nd sem (enrolled)" placeholder="0-10" min="0" max="10" required title="Enter the number of enrolled units in the 2nd semester">
+                        
+                                    <label for="Curricular_units_2nd_sem_evaluations">Curricular units 2nd sem (evaluations):</label>
+                                    <input id="npt" type="number" name="Curricular units 2nd sem (evaluations)" placeholder="0-10" min="0" max="10" required title="Enter the number of evaluations in the 2nd semester">
+                        
+                                    <label for="Curricular_units_2nd_sem_approved">Curricular units 2nd sem (approved):</label>
+                                    <input id="npt" type="number" name="Curricular units 2nd sem (approved)" placeholder="0-10" min="0" max="10" required title="Enter the number of approved units in the 2nd semester">
+                        
+                                    <label for="Curricular_units_2nd_sem_grade">Curricular units 2nd sem (grade):</label>
+                                    <input id="npt" type="number" name="Curricular units 2nd sem (grade)" placeholder="0-20" min="0" max="20" required title="Enter the average grade for the 2nd semester units">
+                        
+                                    <label for="Curricular_units_2nd_sem_without_evaluations">Curricular units 2nd sem (without evaluations):</label>
+                                    <input id="npt" type="number" name="Curricular units 2nd sem (without evaluations)" placeholder="0-10" min="0" max="10" required title="Enter the number of units without evaluations in the 2nd semester">
+
+                                    <button type="button" class="form_button" onclick="showPrevious(3)">Previous</button>
+                                    <input id="npt" type="submit" class="form_button" value="Submit">
+                                </div>
+                        
+                                <!-- <div class="form-section active" id="page1">
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Course ?</label>
-                                        <input type="number" id="course" name="course" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" id="course" name="Course" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-2">
                                         <label for="medu" style="width:352">Daytime/evening attendance :</label>
-                                        <input type="number" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" name="Daytime/evening attendance" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Previous qualification :</label>
-                                        <input type="number" id="quals" name="quals" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" id="quals" name="Previous qualification" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Previous qualification (grade) :</label>
                                         <input type="number" min="0" max="4" step="1"
-                                            placeholder="0 - 20" name="failures" id="failures" required>
+                                            placeholder="0 - 20" name="Previous qualification (grade)" id="failures" required>
                                     </div>
                                         <div class="field padding-bottom--15 ">
                                             <label for="number">Admission grade :</label>
                                             <input type="number" min="0" max="20" step="1"
-                                                name="g1" id="g1" placeholder="0 - 20">
+                                            name="Admission grade" id="g1" placeholder="0 - 20">
                                         </div>
                                         <div class="field padding-bottom--15">
                                             <label for="number">Educational special needs :</label>
                                             <input type="number" min="0" max="20" step="1"
-                                                name="g2" id="g2" placeholder="0 - 20">
+                                            name="Educational special needs" id="g2" placeholder="0 - 20">
                                         </div>
                                         <div class="field padding-bottom--15">
                                             <label for="number">Tuition fees up to date :</label>
                                             <input type="number" min="1" max="5" step="1"
-                                                name="gouout" id="gouout" placeholder="1 - 5">
+                                            name="Tuition fees up to date" id="gouout" placeholder="1 - 5">
                                         </div>
                                         <div class="field padding-bottom--24">
                                             <div class="field padding-bottom--24 mt-5">
@@ -104,35 +185,35 @@
                                 <div class="form-section" id="page2">
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Scholarship holder :</label>
-                                        <input type="number" id="course" name="course" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" id="course" name="Scholarship holder" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-2">
                                         <label for="medu" style="width:352">Age at enrollment :</label>
-                                        <input type="number" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" name="Age at enrollment" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Curricular units 1st sem (credited) :</label>
-                                        <input type="number" id="quals" name="quals" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" id="quals" name="Curricular units 1st sem (credited)" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Curricular units 1st sem (enrolled) :</label>
                                         <input type="number" min="0" max="4" step="1"
-                                            placeholder="0 - 20" name="failures" id="failures" required>
+                                            placeholder="0 - 20" name="Curricular units 1st sem (enrolled)" id="failures" required>
                                     </div>
                                         <div class="field padding-bottom--15 ">
                                             <label for="number">Curricular units 1st sem (evaluations) :</label>
                                             <input type="number" min="0" max="20" step="1"
-                                                name="g1" id="g1" placeholder="0 - 20">
+                                                name="Curricular units 1st sem (evaluations)" id="g1" placeholder="0 - 20">
                                         </div>
                                         <div class="field padding-bottom--15">
                                             <label for="number">Curricular units 1st sem (approved) :</label>
                                             <input type="number" min="0" max="20" step="1"
-                                                name="g2" id="g2" placeholder="0 - 20">
+                                                name="Curricular units 1st sem (approved)" id="g2" placeholder="0 - 20">
                                         </div>
                                         <div class="field padding-bottom--15">
                                             <label for="number">Curricular units 1st sem (grade) :</label>
                                             <input type="number" min="1" max="5" step="1"
-                                                name="gouout" id="gouout" placeholder="1 - 5">
+                                                name="Curricular units 1st sem (grade)" id="gouout" placeholder="1 - 5">
                                         </div>
                                         <div class="field padding-bottom--24">
                                             <div class="field padding-bottom--24 mt-5">
@@ -144,35 +225,35 @@
                                 <div class="form-section" id="page3">
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Curricular units 1st sem (without evaluations) :</label>
-                                        <input type="number" id="course" name="course" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" id="course" name="Curricular units 1st sem (without evaluations)" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-2">
                                         <label for="medu" style="width:352">Curricular units 2nd sem (credited) :</label>
-                                        <input type="number" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" name="Curricular units 2nd sem (credited)" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Curricular units 2nd sem (enrolled) :</label>
-                                        <input type="number" id="quals" name="quals" placeholder="Enter a number!" min="0" max="20" required>
+                                        <input type="number" id="quals" name="Curricular units 2nd sem (enrolled)" placeholder="Enter a number!" min="0" max="20" required>
                                     </div>
                                     <div class="field padding-bottom--15 mt-3">
                                         <label for="number">Curricular units 2nd sem (evaluations) :</label>
                                         <input type="number" min="0" max="4" step="1"
-                                            placeholder="0 - 20" name="failures" id="failures" required>
+                                            placeholder="0 - 20" name="Curricular units 2nd sem (evaluations)" id="failures" required>
                                     </div>
                                         <div class="field padding-bottom--15 ">
                                             <label for="number">Curricular units 2nd sem (approved) :</label>
                                             <input type="number" min="0" max="20" step="1"
-                                                name="g1" id="g1" placeholder="0 - 20">
+                                                name="Curricular units 2nd sem (approved)" id="g1" placeholder="0 - 20">
                                         </div>
                                         <div class="field padding-bottom--15">
                                             <label for="number">Curricular units 2nd sem (grade) :</label>
                                             <input type="number" min="0" max="20" step="1"
-                                                name="g2" id="g2" placeholder="0 - 20">
+                                                name="Curricular units 2nd sem (grade)" id="g2" placeholder="0 - 20">
                                         </div>
                                         <div class="field padding-bottom--15">
                                             <label for="number">Curricular units 2nd sem (without evaluations) :</label>
                                             <input type="number" min="1" max="5" step="1"
-                                                name="gouout" id="gouout" placeholder="1 - 5">
+                                                name="Curricular units 2nd sem (without evaluations)" id="gouout" placeholder="1 - 5">
                                         </div>
                                         <div class="field padding-bottom--24">
                                             <div class="field padding-bottom--24 mt-5">
@@ -180,7 +261,7 @@
                                                 <button type="submit" class="trigg2">Show The Results</button>
                                             </div>
                                         </div>
-                                </div>
+                                </div> -->
                             </form>
 
                         </div>

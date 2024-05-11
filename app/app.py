@@ -47,7 +47,13 @@ def predict():
         
         prediction = model.predict([features])
         # Redirect to the results page with prediction result
-        return redirect(url_for('result', prediction=prediction[0]))
+        if prediction[0] == 0:
+            result = "Warning! these is a strong probability that that you DROP"
+        elif prediction == 1:
+            result = "It seems your are going to be on of the ENROLLED students"
+        else:
+            result = "Congrats, your one of the lucky GRADUATS"
+        return redirect(url_for('result', prediction=result))
 
     except Exception as e:
         return str(e)  # For debugging purposes

@@ -190,7 +190,7 @@ label {
         rgba(0, 0, 0, 0) 0px 0px 0px 0px;
 }
 
-input[type="submit"] {
+/* input[type="submit"] {
     background-color: #17db21;
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
         rgba(0, 0, 0, 0) 0px 0px 0px 0px,
@@ -204,7 +204,7 @@ input[type="submit"] {
     cursor: pointer;
     width: 100%;
     height: 40;
-}
+} */
 
 .field-checkbox input {
     width: 20px;
@@ -363,6 +363,70 @@ thead tr{
 
 .active { display: block; }
 
-.formbg-inner {
-    padding-bottom: 10px;
+#page1 {
+    padding-bottom: 20px;
+
+}
+
+/* Style for the input fields */
+input {
+    width: 100%; /* Full width */
+    padding: 12px 6px; /* Padding inside the input */
+    margin-bottom: 18px;
+    display: inline-block; /* Allows the width to take effect */
+    border: 1px solid #ccc; /* A light grey border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Makes sure padding doesn't affect width */
+    transition: border 0.3s, box-shadow 0.3s; /* Smooth transition for focus effects */
+}
+
+/* Focus state for the input field to add a shadow and change border color */
+input:focus {
+    border-color: #666; /* Darker border color on focus */
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.2); /* Subtle shadow around the field */
+}
+
+/* Optionally, style the placeholder text */
+input::placeholder {
+    color: #aaa; /* Light grey text for the placeholder */
+    font-style: italic; /* Italic style for the placeholder text */
+}
+
+/* Style for form buttons */
+.form_button {
+    padding: 10px 20px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Comfortable padding around the text */
+    font-size: 16px; /* Sufficiently large text size */
+    text-align: center; /* Center the text inside the button */
+    cursor: pointer; /* Cursor indicates the button is clickable */
+    outline: none; /* Remove default focus outline */
+    color: white; /* White text color */
+    background-color: #17db21; /* Vibrant blue background color */
+    border: none; /* No border by default */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transitions for interaction */
+}
+
+/* Hover state for the button */
+.form_button:hover {
+    background-color: #0f8515; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Larger shadow for a lifted effect */
+    transform: translateY(-2px); /* Slightly raise the button */
+}
+
+/* Active state for the button */
+.form_button:active {
+    transform: translateY(1px); /* Depress the button slightly when clicked */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Smaller shadow to simulate pressing */
+}
+
+.btn-next {
+    position: absolute;
+    right: 0;
+}
+
+#page1, #page2 {
+    position: relative;
 }
